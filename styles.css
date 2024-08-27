@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1em;
+}
+
+nav {
+    text-align: center;
+    padding: 4rem;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;   
+}
+
+
+nav ul li {
+    margin: 0 2rem;
+    background-color: transparent;
+}
+
+
+/* Estilo del pie de página */
+footer {
+    background-color: #117864;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
