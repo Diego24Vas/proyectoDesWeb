@@ -1,56 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <!-- Se utiliza UTF-8 Para la optimizacion de motores de busqueda-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimizacion para dispositivos moviles, ajustando el ancho de pantalla a escala de 1 -->
-    <meta name="description" content="Página de pruebas con HTML5.">
-    <link rel="stylesheet" href="styles.css"> 
-
-
-    <title> Sushito Shan-Gai </title> 
+    <meta charset="UTF-8"> <!-- codificacion UTF-8 para la optimizacion -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- optimizacion para telefonos, tablets, haciendo que el ancho sea proporcional a la pantalla(1 a 1) -->
+    <meta name="description" content="Sushito Shan-Gai."> 
+    <title>Sushito Shan-Gai</title> 
+    <link rel="stylesheet" href="styles.css"> <!-- hoja de estilos externa -->
 </head>
 <body>
     <header>
-        <h1> TIENDA DE SUSHI DE SHANGAI</h1>
+        <h1>TIENDA DE SUSHI DE SHANGAI</h1>
     </header>
 
     <nav>
         <ul>
-            <li> <a href="restaurant"> Sobre Nosotros </a> </li>
-            <li> <a href="inicio"> Inicio </a> </li>
-            <li> <a href="menu"> Menú De Sushi </a> </li>
-            <li> <a href="contacto"> Contacto </a> </li>
+            <li><a href="#restaurant">Sobre Nosotros</a></li>
+            <li><a href="#ubicacionHorario">Ubicacion y Horario</a></li>
+            <li><a href="#menu">Menu De Sushi</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
     <main>
-
-        <article id="sobreNosotros">
+        <section id="restaurant">
             <h2>Sobre Nosotros y Nuestro Restaurante</h2>
-            <p>
-                Hace 400 años, la familia Liu se estableció como una dinastía de maestros susheros en Shanghái, perfeccionando un arte que ni siquiera era suyo. <br>
+            <p>Hace 400 años, la familia Liu se estableció como una dinastía de maestros susheros en Shanghái, perfeccionando un arte que ni siquiera era suyo. <br>
                 Con cuchillos afilados y recetas improvisadas, los Liu se hicieron famosos por su sushi con ingredientes exóticos y técnicas que parecían más difíciles de lo que eran.<br>
                 El último Liu, confundido entre Google Maps y el destino, aterrizó en Temuco, Chile, donde decidió abrir "SUSHITO SHAN-GAI". <br>
                 Aquí, el sushi es un homenaje irónico a siglos de supuesta tradición. No hay pretensiones: solo rollos deliciosos, frescos, y un toque de humor familiar.<br>
                 Porque en "SUSHITO SHAN-GAI," lo importante no es la autenticidad de la historia, sino que el sushi sea tan bueno que te olvides de preguntar si lo que cuentas es verdad.
             </p>
-        </article>
+        </section>
 
+        <section id="ubicacionHorario">
+            <h2>Ubicación y Horario de SUSHITO SHAN-GAI</h2>
+            <p>
+                Nos encontramos en el corazón de Temuco, en Av. San Martín 01092, porque incluso los dragones necesitan una buena dirección para encontrar su sushi favorito.<br>
+                Abrimos todos los días, todo el día. Sí, leíste bien, porque en SUSHITO SHAN-GAI no hay descanso; los dragones que atienden el local no duermen, solo hacen sushi.<br>
+                Así que si vienes a las 3 a.m. o a las 3 p.m., siempre habrá un rollo esperando por ti. Solo recuerda no hacer preguntas difíciles, nuestros dragones se ponen nerviosos.
+            </p>
+        </section>
 
-        <article id="ubicacionHorario">
-        <h2>Ubicación y horario de SUSHITO SHAN-GAI</h2>
-        </p>
-            Nos encontramos en el corazón de Temuco, en Av. San Martín 01092, porque incluso los dragones necesitan una buena dirección para encontrar su sushi favorito.<br>
-            Abrimos todos los días, todo el día. Sí, leíste bien, porque en SUSHITO SHAN-GAI no hay descanso; los dragones que atienden el local no duermen, solo hacen sushi.<br>
-            Así que si vienes a las 3 a.m. o a las 3 p.m., siempre habrá un rollo esperando por ti. Solo recuerda no hacer preguntas difíciles, nuestros dragones se ponen nerviosos.
-        <p>
-        </article>
+        <!-- Menu de sushis con tabla -->
+        <section id="menu">
+            <h2>Menú de Sushi</h2>
 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre del Sushi</th>
+                        <th>Ingredientes</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!--sushi numero 1-->
+                    <tr>
+                        <td>Dragón Despierto</td>
+                        <td>Salmón, palta, queso crema</td>
+                        <td>$8.500</td>
+                    </tr>
+                    <!--sushi numero 2-->
+                    <tr>
+                        <td>Shangai Surprise</td>
+                        <td>Camarón tempura, pepino, dragón asado</td>
+                        <td>$9.000</td>
+                    </tr>
+                    <!--sushi numero 3-->
+                    <tr>
+                        <td>Sushito Guerrero</td>
+                        <td>Atún, cangrejo, palta, cebollín</td>
+                        <td>$9.500</td>
+                    <!--sushi numero 4-->
+                    <tr>
+                        <td>Fire Roll</td>
+                        <td>Salmón ahumado, ají, queso crema</td>
+                        <td>$8.000</td>
+                    <!--sushi numero 5-->
+                    <tr>
+                        <td>El Emperador del Río</td>
+                        <td> Anguila, pepino, palta, y salsa unagi</td>
+                        <td>$8.500</td>
+                    <!--sushi numero 6-->
+                    <tr>
+                        <td>Maestro Liu’s Legacy</td>
+                        <td>Pollo teriyaki, zanahoria, espárragos</td>
+                        <td>$7.500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- formulario de contacto -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea><br><br>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
     </main>
 
     <footer>
-
-        <p> &copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicacion, envenenamiento, emponzoñamiento o algun tipo de daño. </p>
+        <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, emponzoñamiento o algún tipo de daño.</p>
     </footer>
+
+    <script src="script.js"></script> <!-- archivo de javascript -->
 </body>
 </html>
