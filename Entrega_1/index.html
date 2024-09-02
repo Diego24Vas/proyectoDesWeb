@@ -2,28 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8"> <!-- codificacion UTF-8 para la optimizacion -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- optimizacion para telefonos, tablets, haciendo que el ancho sea proporcional a la pantalla(1 a 1) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- optimizacion para telefonos -->
     <meta name="description" content="Sushito Shan-Gai."> 
     <title>Sushito Shan-Gai</title> 
-    <link rel="stylesheet" href="styles.css"> <!-- hoja de estilos externa -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- hoja de estilos externa -->
 </head>
 <body>
-    <header>
+    <header id="main-header"> <!-- identificador agregado -->
         <h1>TIENDA DE SUSHI DE SHANGAI</h1>
     </header>
 
     <nav>
-        <ul>
+        <ul class="nav-list"> <!-- clase agregada -->
             <li><a href="#restaurant">Sobre Nosotros</a></li>
-            <li><a href="#ubicacionHorario">Ubicacion y Horario</a></li>
-            <li><a href="#menu">Menu De Sushi</a></li>
+            <li><a href="#ubicacionHorario">Ubicación y Horario</a></li>
+            <li><a href="#menu">Menú De Sushi</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
     <main>
-        <!-- Precentacion del restaurante -->
-        <section id="restaurant">
+        <!-- presentacion del restaurante -->
+        <section id="restaurant" class="seccion-destacada"> <!-- clase agregada -->
             <h2>Sobre Nosotros y Nuestro Restaurante</h2>
             <p>Hace 400 años, la familia Liu se estableció como una dinastía de maestros susheros en Shanghái, perfeccionando un arte que ni siquiera era suyo. <br>
                 Con cuchillos afilados y recetas improvisadas, los Liu se hicieron famosos por su sushi con ingredientes exóticos y técnicas que parecían más difíciles de lo que eran.<br>
@@ -33,8 +33,8 @@
             </p>
         </section>
 
-        <!-- Ubicacion y horario del restaurante -->
-        <section id="ubicacionHorario">
+        <!-- ubicacion y horario del restaurante -->
+        <section id="ubicacionHorario" class="seccion-destacada"> <!-- clase agregada -->
             <h2>Ubicación y Horario de SUSHITO SHAN-GAI</h2>
             <p>
                 Nos encontramos en el corazón de Temuco, en Av. San Martín 01092, porque incluso los dragones necesitan una buena dirección para encontrar su sushi favorito.<br>
@@ -43,8 +43,8 @@
             </p>
         </section>
 
-        <!-- Menu de sushis con tabla -->
-        <section id="menu">
+        <!-- Menu de sushis con tablas -->
+        <section id="menu" class="seccion-destacada"> <!-- clase agregada -->
             <h2>Menú de Sushi</h2>
 
             <table>
@@ -74,16 +74,19 @@
                         <td>Sushito Guerrero</td>
                         <td>Atún - cangrejo - palta - cebollín</td>
                         <td>$9.500</td>
+                    </tr>
                     <!--sushi numero 4-->
                     <tr>
                         <td>Fire Roll</td>
                         <td>Salmón ahumado - ají - queso crema</td>
                         <td>$8.000</td>
+                    </tr>
                     <!--sushi numero 5-->
                     <tr>
                         <td>El Emperador del Río</td>
-                        <td> Anguila - pepino - palta - salsa unagi</td>
+                        <td>Anguila - pepino - palta - salsa unagi</td>
                         <td>$8.500</td>
+                    </tr>
                     <!--sushi numero 6-->
                     <tr>
                         <td>Maestro Liu’s Legacy</td>
@@ -94,7 +97,7 @@
             </table>
         </section>
 
-        <!-- formulario de contacto -->
+        <!-- Formulario de contacto -->
         <section id="contacto">
             <h2>Contacto</h2>
             <form id="contactForm" onsubmit="handleSubmit(event)">
@@ -107,16 +110,16 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" required></textarea><br><br>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" class="btn-enviar">Enviar</button> <!-- Clase agregada -->
             </form>
         </section>
     </main>
 
-    <!-- Parte final de la paguina -->
+    <!-- parte final de la pagina -->
     <footer>
-        <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, emponzoñamiento o algún tipo de ser vivo que crezca dentro del organismo.</p>
+        <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, emponzoñamiento, embarazo de dragon o algún tipo de ser vivo que crezca dentro del organismo.</p>
     </footer>
 
-    <script src="script.js"></script> <!-- archivo de javascript -->
+    <script src="js/script.js"></script> <!-- archivo de javascript -->
 </body>
 </html>

@@ -8,7 +8,7 @@ body {
 }
 
 /* encabezado */
-header {
+#main-header { /* identificador usado */
     background-color: #2c2c2c;
     color: #ffa500; /* color dorado */
     text-align: center;
@@ -23,12 +23,7 @@ header h1 {
 }
 
 /* navegacion */
-nav {
-    background-color: #3b3b3b;
-    padding: 10px;
-}
-
-nav ul {
+.nav-list { /* clase usada */
     list-style: none;
     display: flex;
     justify-content: center;
@@ -36,27 +31,23 @@ nav ul {
     margin: 0;
 }
 
-nav ul li {
+.nav-list li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.nav-list li a {
     text-decoration: none;
     color: #ffa500;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #ff4500; /* cambia a un color mas rojo*/
+.nav-list li a:hover {
+    color: #ff4500; /* cambia a un color mas rojo */
 }
 
 /* seccion main */
-main {
-    padding: 20px;
-}
-
-section {
+.seccion-destacada { /* clase usada */
     margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #444;
@@ -66,7 +57,7 @@ section {
     transition: transform 0.3s;
 }
 
-section:hover {
+.seccion-destacada:hover {
     transform: scale(1.02);
     border-color: #ffa500; /* resalta al pasar el mouse */
 }
@@ -93,7 +84,7 @@ tr:hover {
     background-color: #333; /* efecto al pasar el mouse */
 }
 
-/* Formulario de contacto */
+/* formulario de contacto */
 form {
     display: flex;
     flex-direction: column;
@@ -108,27 +99,31 @@ input, textarea {
     color: #e0e0e0;
 }
 
-button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
+input:focus, textarea:focus {
+    border-color: #ffa500;
+    outline: none;
+}
+
+.btn-enviar { /* clase usada */
     background-color: #ffa500;
     color: #1e1e1e;
-    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
     cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #ff4500; /* Se vuelve más rojizo */
+.btn-enviar:hover {
+    background-color: #ff4500;
 }
 
-/* Pie de página */
+/* pie de pagina */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 10px 0;
     background-color: #2c2c2c;
-    color: #888;
+    color: #ffa500;
     font-size: 0.8em;
-    border-top: 1px solid #444;
 }
