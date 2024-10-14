@@ -1,3 +1,5 @@
+
+// FUNCION PARA MOSTRAR DATOS INGRESADOS EN FORMULARIO
 function handleSubmit(event) {
     event.preventDefault();                                    // Previene el envío real del formulario
     const nombre = document.getElementById('nombre').value;    // Obtiene el valor del campo con ID 'nombre'
@@ -6,6 +8,7 @@ function handleSubmit(event) {
 
     // Muestra una alerta con los datos ingresados
     alert(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+    console.log(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
 }
 
 // Ejemplo de evento interactivo con el mouse
@@ -14,3 +17,8 @@ document.querySelector('header').addEventListener('mouseover', () => {
     // Muestra una alerta cuando el mouse pasa sobre el header
     alert('Bienvenido a SUSHITO SHAN-GAI, el mejor sushi en Temuco!');
 });
+
+
+
+
+
