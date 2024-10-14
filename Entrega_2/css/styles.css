@@ -1,0 +1,129 @@
+/* estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e; /* fondo oscuro */
+    color: #e0e0e0; /* texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* encabezado */
+#main-header { /* identificador usado */
+    background-color: #2c2c2c;
+    color: #ffa500; /* color dorado */
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+}
+
+/* navegacion */
+.nav-list { /* clase usada */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #ffa500;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #ff4500; /* cambia a un color mas rojo */
+}
+
+/* seccion main */
+.seccion-destacada { /* clase usada */
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: rgba(50, 50, 50, 0.8); /* fondo translucido */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.seccion-destacada:hover {
+    transform: scale(1.02);
+    border-color: #ffa500; /* resalta al pasar el mouse */
+}
+
+/* tablas del menu de sushi */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+}
+
+th {
+    background-color: #4b4b4b;
+    color: #ffa500;
+}
+
+tr:hover {
+    background-color: #333; /* efecto al pasar el mouse */
+}
+
+/* formulario de contacto */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+}
+
+input:focus, textarea:focus {
+    border-color: #ffa500;
+    outline: none;
+}
+
+.btn-enviar { /* clase usada */
+    background-color: #ffa500;
+    color: #1e1e1e;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #ff4500;
+}
+
+/* pie de pagina */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #2c2c2c;
+    color: #ffa500;
+    font-size: 0.8em;
+}
