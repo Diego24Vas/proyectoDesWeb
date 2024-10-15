@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- optimizacion para telefonos -->
     <meta name="description" content="Sushito Shan-Gai."> 
     <title>Sushito Shan-Gai</title> 
-    <link rel="stylesheet" href="css/styles.css"> <!-- hoja de estilos externa -->
+    <link rel="stylesheet" href="css/stylesIndex.css"> <!-- hoja de estilos externa -->
 </head>
 <body>
     <header 
@@ -19,8 +19,7 @@
         <ul class="nav-list"> <!-- clase agregada -->
             <li><a href="#restaurant">Sobre Nosotros</a></li>
             <li><a href="#ubicacionHorario">Ubicación y Horario</a></li>
-            <li><a href="#menu">Menú De Sushi</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="pedidos.html">Menú De Sushi</a></li>
         </ul>
     </nav>
 
@@ -46,83 +45,8 @@
             </p>
         </section>
 
-        <!-- Menu de sushis con tablas -->
-        <section id="menu" class="seccion-destacada"> <!-- clase agregada -->
-            <h2>Menú de Sushi</h2>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre del Sushi</th>
-                        <th>Ingredientes</th>
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <!--sushi numero 1-->
-                    <tr>
-                        <td>Dragón Despierto</td>
-                        <td>Salmón - palta - queso crema</td>
-                        <td>$8.500</td>
-                    </tr>
-                    <!--sushi numero 2-->
-                    <tr>
-                        <td>Shangai Surprise</td>
-                        <td>Camarón tempura - pepino - dragón asado</td>
-                        <td>$9.000</td>
-                    </tr>
-                    <!--sushi numero 3-->
-                    <tr>
-                        <td>Sushito Guerrero</td>
-                        <td>Atún - cangrejo - palta - cebollín</td>
-                        <td>$9.500</td>
-                    </tr>
-                    <!--sushi numero 4-->
-                    <tr>
-                        <td>Fire Roll</td>
-                        <td>Salmón ahumado - ají - queso crema</td>
-                        <td>$8.000</td>
-                    </tr>
-                    <!--sushi numero 5-->
-                    <tr>
-                        <td>El Emperador del Río</td>
-                        <td>Anguila - pepino - palta - salsa unagi</td>
-                        <td>$8.500</td>
-                    </tr>
-                    <!--sushi numero 6-->
-                    <tr>
-                        <td>Maestro Liu’s Legacy</td>
-                        <td>Pollo teriyaki - zanahoria - espárragos</td>
-                        <td>$7.500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Formulario de contacto -->
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required><br><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea><br><br>
-
-                <button type="submit" class="btn-enviar">Enviar</button> <!-- Clase agregada -->
-            </form>
-        </section>
-    </main>
-
-    <!-- parte final de la pagina -->
-    <footer>
-        <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, emponzoñamiento, embarazo de dragon o algún tipo de ser vivo que crezca dentro del organismo.</p>
-    </footer>
-
-    <script src="js/funciones.js"></script> <!-- archivo de javascript -->
 </body>
+<footer>
+    <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, emponzoñamiento, embarazo de dragon o algún tipo de ser vivo que crezca dentro del organismo.</p>
+</footer>
 </html>
