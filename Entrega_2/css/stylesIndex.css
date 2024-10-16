@@ -168,3 +168,10 @@ footer {
     color: #ffa500;
     font-size: 0.8em;
 }
+
+
+/*Imagens de la galeria */
+.imagen-sushi {
+    width: 200px; 
+    height: auto; 
+}

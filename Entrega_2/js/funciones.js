@@ -1,4 +1,89 @@
 
+
+// FUNCION PARA VER LAS IMAGENES DE LOS SUSHIS
+const galeriaSushi = {
+    imagenes: [
+        'img/Emperador.jpeg',
+        'img/Fire.jpeg',
+        'img/Guerrero.jpeg',
+        'img/Maestro.jpeg',
+        'img/Shangai.jpeg'
+    ],
+    indiceActual: 0,
+    mostrarImagen: function() {
+        const imagenSushi = document.getElementById('imagenSushi');
+        imagenSushi.src = this.imagenes[this.indiceActual];
+        console.log(`Mostrando imagen: ${this.imagenes[this.indiceActual]}`);
+    },
+    siguiente: function() {
+        this.indiceActual = (this.indiceActual + 1) % this.imagenes.length;
+        this.mostrarImagen();
+    },
+    anterior: function() {
+        this.indiceActual = (this.indiceActual - 1 + this.imagenes.length) % this.imagenes.length;
+        this.mostrarImagen();
+    },
+    iniciar: function() {
+        const siguienteBtn = document.getElementById('siguienteBtn');
+        const anteriorBtn = document.getElementById('anteriorBtn');
+
+        siguienteBtn.addEventListener('click', () => this.siguiente());
+        anteriorBtn.addEventListener('click', () => this.anterior());
+
+        this.mostrarImagen(); // Mostrar la primera imagen al cargar
+    }
+};
+
+// Iniciar la galería al cargar la página
+window.onload = function() {
+    galeriaSushi.iniciar();
+};
+
+
+// ---------------------------------------------------------------------------------
+
+
+
+// FUNCION PARA VER LAS RESEÑAS DE LOS CLIENTES
+const gestorReseñas = {
+    reseñas: [
+        '"¡El mejor sushi que he probado! - Juan"',
+        '"Un servicio excepcional y sabores increíbles. - María"',
+        '"Definitivamente volveré. - Pedro"',
+        '"Ambiente acogedor y delicioso sushi. - Laura"',
+        '"¡Recomiendo el rollo especial! - Carlos"'
+    ],
+    indiceActual: 0,
+    mostrarReseña: function() {
+        const listaReseñas = document.getElementById('listaReseñas');
+        listaReseñas.innerHTML = this.reseñas[this.indiceActual];
+        console.log(`Mostrando reseña: ${this.reseñas[this.indiceActual]}`);
+    },
+    cambiarReseña: function() {
+        this.indiceActual = (this.indiceActual + 1) % this.reseñas.length;
+        this.mostrarReseña();
+    },
+    iniciar: function() {
+        const cambiarReseñaBtn = document.getElementById('cambiarReseñaBtn');
+        cambiarReseñaBtn.addEventListener('click', () => this.cambiarReseña());
+        
+        this.mostrarReseña(); // Mostrar la primera reseña al cargar
+    }
+};
+
+// Iniciar el gestor de reseñas al cargar la página
+window.onload = function() {
+    gestorReseñas.iniciar();
+};
+
+
+
+// ---------------------------------------------------------------------------------
+
+
+
+
+
 // FUNCION QUE SUMA LA CANTIDAD DE PRODUCTOS Y CALCULA EL TOTAL
 let total = 0;
 function modificarCantidad(precio, idCantidad, cantidad) {
@@ -15,12 +100,19 @@ function modificarCantidad(precio, idCantidad, cantidad) {
     // Calculamos el total
     total += precio * cantidad;
     document.getElementById('total').textContent = `$${total.toLocaleString()}`;
+
+    console.log(`Total: ${total}`);
 }
 
 function handleSubmit(event) {
     event.preventDefault();
     alert("Pedido realizado con éxito");
 }
+
+ 
+
+// ---------------------------------------------------------------------------------
+
 
 
 
@@ -45,3 +137,4 @@ document.querySelector('header').addEventListener('mouseover', () => {
 
 
 
+// ---------------------------------------------------------------------------------
