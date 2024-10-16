@@ -1,5 +1,3 @@
-
-
 // FUNCION PARA VER LAS IMAGENES DE LOS SUSHIS
 const galeriaSushi = {
     imagenes: [
@@ -34,16 +32,6 @@ const galeriaSushi = {
     }
 };
 
-// Iniciar la galería al cargar la página
-window.onload = function() {
-    galeriaSushi.iniciar();
-};
-
-
-// ---------------------------------------------------------------------------------
-
-
-
 // FUNCION PARA VER LAS RESEÑAS DE LOS CLIENTES
 const gestorReseñas = {
     reseñas: [
@@ -53,14 +41,14 @@ const gestorReseñas = {
         '"Ambiente acogedor y delicioso sushi. - Laura"',
         '"¡Recomiendo el rollo especial! - Carlos"'
     ],
-    indiceActual: 0,
+    indiceActual_1: 0,
     mostrarReseña: function() {
         const listaReseñas = document.getElementById('listaReseñas');
-        listaReseñas.innerHTML = this.reseñas[this.indiceActual];
-        console.log(`Mostrando reseña: ${this.reseñas[this.indiceActual]}`);
+        listaReseñas.innerHTML = this.reseñas[this.indiceActual_1];
+        console.log(`Mostrando reseña: ${this.reseñas[this.indiceActual_1]}`);
     },
     cambiarReseña: function() {
-        this.indiceActual = (this.indiceActual + 1) % this.reseñas.length;
+        this.indiceActual_1 = (this.indiceActual_1 + 1) % this.reseñas.length;
         this.mostrarReseña();
     },
     iniciar: function() {
@@ -71,8 +59,9 @@ const gestorReseñas = {
     }
 };
 
-// Iniciar el gestor de reseñas al cargar la página
+// Iniciar ambas funciones al cargar la página
 window.onload = function() {
+    galeriaSushi.iniciar();
     gestorReseñas.iniciar();
 };
 
