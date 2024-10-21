@@ -175,3 +175,16 @@ footer {
     width: 200px; 
     height: auto; 
 }
+
+#contactosContainer {
+    margin-top: 20px;
+}
+
+.contacto-item {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}

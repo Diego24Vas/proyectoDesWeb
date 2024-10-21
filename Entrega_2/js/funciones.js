@@ -65,13 +65,7 @@ window.onload = function() {
     gestorReseñas.iniciar();
 };
 
-
-
 // ---------------------------------------------------------------------------------
-
-
-
-
 
 // FUNCION QUE SUMA LA CANTIDAD DE PRODUCTOS Y CALCULA EL TOTAL
 let total = 0;
@@ -79,7 +73,7 @@ function modificarCantidad(precio, idCantidad, cantidad) {
     let elementoCantidad = document.getElementById(idCantidad);
     let cantidadActual = parseInt(elementoCantidad.textContent);
 
-    // Actualizamos la cantidad, y impide menos que cero
+    // Actualizamos la cantidad, y evita menos que cero
     let nuevaCantidad = cantidadActual + cantidad;
     if (nuevaCantidad < 0) return;
 
@@ -94,36 +88,55 @@ function modificarCantidad(precio, idCantidad, cantidad) {
 }
 
 function handleSubmit(event) {
-    event.preventDefault();
-    alert("Pedido realizado con éxito");
+    event.preventDefault(); // Evita el envío inmediato del formulario
+    const totalElement = document.getElementById('total');
+    const totalValue = parseFloat(totalElement.textContent.replace('$', '').replace(',', '')); // Quita los símbolos de moneda
+    document.getElementById('totalInput').value = totalValue; // Asigna el total al campo oculto
+
+    event.target.submit();
 }
 
- 
-
 // ---------------------------------------------------------------------------------
-
-
-
 
 // FUNCION PARA MOSTRAR DATOS INGRESADOS EN FORMULARIO
 function handleSubmit(event) {
-    event.preventDefault();                                    // Previene el envío real del formulario
-    const nombre = document.getElementById('nombre').value;    // Obtiene el valor del campo con ID 'nombre'
-    const email = document.getElementById('email').value;      // Obtiene el valor del campo con ID 'email'
-    const mensaje = document.getElementById('mensaje').value;  // Obtiene el valor del campo con ID 'mensaje'
+    event.preventDefault(); // Previene el envío real del formulario
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('mensaje').value;
 
-    // Muestra una alerta con los datos ingresados
-    alert(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
     console.log(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
 }
 
-// Ejemplo de evento interactivo con el mouse
-document.querySelector('header').addEventListener('mouseover', () => {
-    
-    // Muestra una alerta cuando el mouse pasa sobre el header
-    alert('Bienvenido a SUSHITO SHAN-GAI, el mejor sushi en Temuco!');
-});
-
-
-
 // ---------------------------------------------------------------------------------
+
+/// FUNCION PARA CARGAR CONTACTOS DESDE LA BASE DE DATOS CON FETCH
+document.getElementById('cargarContactos').addEventListener('click', function() {
+    fetch('php/obtener_contactos.php')
+    .then(response => response.json())
+    .then(data => {
+        const tablaContactos = document.getElementById('tablaContactos').getElementsByTagName('tbody')[0];
+        tablaContactos.innerHTML = ""; // Limpiar la tabla antes de agregar los nuevos contactos
+
+        if (data.length === 0) {
+            const row = tablaContactos.insertRow();
+            const cell = row.insertCell();
+            cell.colSpan = 3;
+            cell.textContent = "No hay contactos registrados.";
+        } else {
+            data.forEach(contacto => {
+                const row = tablaContactos.insertRow();
+                const cellNombre = row.insertCell(0);
+                const cellEmail = row.insertCell(1);
+                const cellMensaje = row.insertCell(2);
+
+                cellNombre.textContent = contacto.nombre;
+                cellEmail.textContent = contacto.email;
+                cellMensaje.textContent = contacto.mensaje;
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error al obtener los contactos:', error);
+    });
+});
