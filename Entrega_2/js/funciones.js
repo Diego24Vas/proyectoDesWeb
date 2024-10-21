@@ -32,6 +32,8 @@ const galeriaSushi = {
     }
 };
 
+// --------------------------------------------------------------------------------- 
+
 // FUNCION PARA VER LAS RESEÑAS DE LOS CLIENTES
 const gestorReseñas = {
     reseñas: [
@@ -88,10 +90,10 @@ function modificarCantidad(precio, idCantidad, cantidad) {
 }
 
 function handleSubmit(event) {
-    event.preventDefault(); // Evita el envío inmediato del formulario
+    event.preventDefault();                                             // Evita el envío inmediato del formulario
     const totalElement = document.getElementById('total');
     const totalValue = parseFloat(totalElement.textContent.replace('$', '').replace(',', '')); // Quita los símbolos de moneda
-    document.getElementById('totalInput').value = totalValue; // Asigna el total al campo oculto
+    document.getElementById('totalInput').value = totalValue;                                   // Asigna el total al campo oculto
 
     event.target.submit();
 }

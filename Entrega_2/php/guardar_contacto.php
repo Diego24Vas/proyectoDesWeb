@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
     $mensaje = $_POST['mensaje'];
+    
+    
 
     // Verificar si todos los campos tienen valores
     if (empty($nombre) || empty($email) || empty($mensaje)) {
