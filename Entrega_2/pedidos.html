@@ -93,7 +93,7 @@
     <!-- Formulario para realizar el pedido -->
     <section id="Pedir">
         <h2>Realiza tu pedido</h2>
-        <form id="pedidoForm" action="php/guardar_pedido.php" method="POST" onsubmit="handleSubmit(event)">
+        <form id="pedidoForm" action="php/guardar_pedido.php" method="POST" onsubmit="handleSubmitPedido(event)">
             <input type="hidden" id="totalInput" name="total" value="0">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required><br><br>

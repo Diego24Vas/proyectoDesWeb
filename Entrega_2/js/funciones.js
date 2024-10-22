@@ -110,6 +110,33 @@ function handleSubmit(event) {
     console.log(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
 }
 
+// Función para manejar el envío del formulario
+function handleSubmitPedido(event) {
+    event.preventDefault(); // Previene el envío real del formulario
+
+    // Capturar los datos del formulario
+    const nombre = document.getElementById('nombre').value;
+    const direccion = document.getElementById('direccion').value;
+    const telefono = document.getElementById('telefono').value;
+    const total = document.getElementById('totalInput').value;
+
+    // Asegúrate de que todos los campos estén completos
+    if (!nombre || !direccion || !telefono || !total) {
+        console.error("Faltan campos por completar.");
+        return;
+    }
+
+    // Muestra los datos en la consola (opcional)
+    console.log(`Datos del pedido:
+    Nombre: ${nombre}
+    Dirección: ${direccion}
+    Teléfono: ${telefono}
+    Total: ${total}`);
+
+    // Envía el formulario
+    document.getElementById('pedidoForm').submit(); // Envía el formulario
+}
+
 // ---------------------------------------------------------------------------------
 
 /// FUNCION PARA CARGAR CONTACTOS DESDE LA BASE DE DATOS CON FETCH
