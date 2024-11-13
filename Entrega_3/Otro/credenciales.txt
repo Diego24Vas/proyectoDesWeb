@@ -1,0 +1,6 @@
+INSERT INTO adminDesWeb (id, nombre, apellido, cargo, clave) VALUES
+(154234, 'Juan', 'Pérez', 'cocinero', MD5('clave123')),
+(267831, 'Ana', 'Gómez', 'cocinero', MD5('clave456')),
+(394743, 'Luis', 'Martínez', 'cajero', MD5('clave789')),
+(463389, 'Carlos', 'López', 'camarero', MD5('clave101')),
+(530535, 'Sofía', 'Díaz', 'repartidor', MD5('clave202'));
