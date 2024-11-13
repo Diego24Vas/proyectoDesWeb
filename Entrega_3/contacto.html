@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesPedidos.css"> <!-- hoja de estilos externa -->
+    <title>Contacto</title>
+</head>
+<body>
+    <!-- Formulario de contacto el cual llama un php que realiza la canexion  -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form id="contactForm" action="php/guardar_contacto.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+        
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea><br><br>
+        
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Botón para cargar los contactos -->
+    <section id="mostrarContactos">
+        <h2>Mostrar Contactos</h2>
+        <button id="cargarContactos">Cargar Contactos</button>
+    
+        <table id="tablaContactos" border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenarán los contactos mediante JavaScript -->
+            </tbody>
+        </table>
+    </section>
+    
+
+    <!-- Parte final de la página -->
+    <footer>
+        <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, emponzoñamiento, embarazo de dragón o algún tipo de ser vivo que crezca dentro del organismo.</p>
+    </footer>
+
+    <script src="js/funciones.js"></script> <!-- Archivo de JavaScript -->
+</body>
+</html>

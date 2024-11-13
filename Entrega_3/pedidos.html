@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesPedidos.css">
+    <title>Pedidos</title>
+</head>
+<body>
+    
+    <!-- Menú de sushis con botones para agregar o quitar -->
+    <section id="menu" class="seccion-destacada">
+        <h2>Menú de Sushi</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del Sushi</th>
+                    <th>Ingredientes</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+                        <!--  tabla quee muestra los menu   -->
+            <tbody>
+                <tr>
+                    <td>Dragón Despierto</td>
+                    <td>Salmón - palta - queso crema</td>
+                    <td>$8.500</td>
+                    <td><span id="cantidad_1">0</span></td>
+                    <td>
+                        <button onclick="modificarCantidad(8500, 'cantidad_1', 1)">Agregar</button>
+                        <button onclick="modificarCantidad(8500, 'cantidad_1', -1)">Quitar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shangai Surprise</td>
+                    <td>Camarón tempura - pepino - dragón asado</td>
+                    <td>$9.000</td>
+                    <td><span id="cantidad_2">0</span></td>
+                    <td>
+                        <button onclick="modificarCantidad(9000, 'cantidad_2', 1)">Agregar</button>
+                        <button onclick="modificarCantidad(9000, 'cantidad_2', -1)">Quitar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sushito Guerrero</td>
+                    <td>Atún - cangrejo - palta - cebollín</td>
+                    <td>$9.500</td>
+                    <td><span id="cantidad_3">0</span></td>
+                    <td>
+                        <button onclick="modificarCantidad(9500, 'cantidad_3', 1)">Agregar</button>
+                        <button onclick="modificarCantidad(9500, 'cantidad_3', -1)">Quitar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fire Roll</td>
+                    <td>Salmón ahumado - ají - queso crema</td>
+                    <td>$8.000</td>
+                    <td><span id="cantidad_4">0</span></td>
+                    <td>
+                        <button onclick="modificarCantidad(8000, 'cantidad_4', 1)">Agregar</button>
+                        <button onclick="modificarCantidad(8000, 'cantidad_4', -1)">Quitar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>El Emperador del Río</td>
+                    <td>Anguila - pepino - palta - salsa unagi</td>
+                    <td>$8.500</td>
+                    <td><span id="cantidad_5">0</span></td>
+                    <td>
+                        <button onclick="modificarCantidad(8500, 'cantidad_5', 1)">Agregar</button>
+                        <button onclick="modificarCantidad(8500, 'cantidad_5', -1)">Quitar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Maestro Liu’s Legacy</td>
+                    <td>Pollo teriyaki - zanahoria - espárragos</td>
+                    <td>$7.500</td>
+                    <td><span id="cantidad_6">0</span></td>
+                    <td>
+                        <button onclick="modificarCantidad(7500, 'cantidad_6', 1)">Agregar</button>
+                        <button onclick="modificarCantidad(7500, 'cantidad_6', -1)">Quitar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+                <!--  aqui se va actulizando el precio segun el menu que agreguen   -->
+        <h3>Total a pagar: <span id="total">$0</span></h3>
+    </section>
+
+    <!-- Formulario para realizar el pedido -->
+    <section id="Pedir">
+        <h2>Realiza tu pedido</h2>
+        <form id="pedidoForm" action="php/guardar_pedido.php" method="POST" onsubmit="handleSubmitPedido(event)">
+            <input type="hidden" id="totalInput" name="total" value="0">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+        
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required><br><br>
+        
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+        
+            <button type="submit" class="btn-enviar">Realizar Pedido</button>
+        </form>
+        
+    </section>
+
+    <footer>
+        <p>&copy; Sushito Shan-Gai no se hace responsable ante demandas por intoxicación, envenenamiento, etc.</p>
+    </footer>
+
+<!-- Enlace al archivo JS  -->
+<script src="js/pedido.js"></script>
+</body>
+</html>
