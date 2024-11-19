@@ -12,12 +12,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Contactos</h1>
+        <h1 class="my-4"> Editar Contactos</h1>
         <section id="mostrarContactos">
             <h2 class="mb-3"></h2>
             <button id="cargarContactos" class="btn btn-primary mb-3">Cargar Contactos</button>
-            
-
             <table id="tablaContactos" class="table table-bordered">
                 <thead class="thead-dark">
                     <tr>
@@ -34,6 +32,34 @@
             </table>
         </section>
     </div>
+
+    <hr>
+
+    <div class="container"> <!-- Añadir la clase container aquí -->
+        <h1 class="my-4"> Editar Usuarios </h1>
+        <section id="mostrarUsuarios">
+            <h2 class="mb-3"></h2>
+            <button id="cargarUsuarios" class="btn btn-primary mb-3">Cargar Usuarios</button>
+            <table id="tablaUsuarios" class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cargo</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se llenarán los contactos mediante JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </div>  
+
+    <hr>
+
+
     <script src="../js/funciones.js" defer></script>
 </body>
 </html>
