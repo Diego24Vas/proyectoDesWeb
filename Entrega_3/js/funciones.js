@@ -69,82 +69,33 @@ window.onload = function() {
 
 // ---------------------------------------------------------------------------------
 
-// FUNCION PARA MOSTRAR DATOS INGRESADOS EN FORMULARIO
-function handleSubmit(event) {
-    event.preventDefault(); // Previene el envío real del formulario
-    const nombre = document.getElementById('nombre').value;
-    const email = document.getElementById('email').value;
-    const mensaje = document.getElementById('mensaje').value;
-
-    console.log(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
-}
-
-
 
 // ---------------------------------------------------------------------------------
 
-/// FUNCION PARA CARGAR CONTACTOS DESDE LA BASE DE DATOS CON FETCH
-document.getElementById('cargarContactos').addEventListener('click', function() {
-    fetch('../php/obtener_contactos.php')
-    .then(response => response.json())
-    .then(data => {
-        const tablaContactos = document.getElementById('tablaContactos').getElementsByTagName('tbody')[0];
-        tablaContactos.innerHTML = ""; // Limpiar la tabla antes de agregar los nuevos contactos
-
-        if (data.length === 0) {
-            const row = tablaContactos.insertRow();
-            const cell = row.insertCell();
-            cell.colSpan = 3;
-            cell.textContent = "No hay contactos registrados.";
-        } else {
-            data.forEach(contacto => {
-                const row = tablaContactos.insertRow();
-                const cellID = row.insertCell(0);
-                const cellNombre = row.insertCell(0);
-                const cellEmail = row.insertCell(1);
-                const cellMensaje = row.insertCell(2);
-
-                cellID.textContent = contacto.id;
-                cellNombre.textContent = contacto.nombre;
-                cellEmail.textContent = contacto.email;
-                cellMensaje.textContent = contacto.mensaje;
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Error al obtener los contactos:', error);
-    });
-});
-
-
-// ---------------------------------------------------------------------------------
-
-// FUNCION PARA ELIMINAR CONTACTOS DESDE LA BASE DE DATOS CON FETCH
 document.addEventListener('DOMContentLoaded', function() {
+    // Agregar evento de clic para cargar contactos
     document.getElementById('cargarContactos').addEventListener('click', cargarContactos);
+
+    // Agregar evento de clic para cargar usuarios
+    document.getElementById('cargarUsuarios').addEventListener('click', mostrarUsuarios);
 });
 
 function cargarContactos() {
-    fetch('../php/obtener_contactos.php') // Reemplaza con la URL de tu archivo PHP
+    fetch('../php/obtener_contactos.php')
         .then(response => response.json())
-        .then(contactos => {
-            const tbody = document.querySelector('#tablaContactos tbody');
-            tbody.innerHTML = ''; // Limpiar la tabla antes de cargar los contactos
+        .then(data => {
+            const tablaContactos = document.getElementById('tablaContactos').getElementsByTagName('tbody')[0];
+            tablaContactos.innerHTML = ''; // Limpiar la tabla antes de llenarla
 
-            contactos.forEach(contacto => {
-                const tr = document.createElement('tr');
-
-                tr.innerHTML = `
+            data.forEach(contacto => {
+                const fila = tablaContactos.insertRow();
+                fila.innerHTML = `
                     <td>${contacto.id}</td>
                     <td>${contacto.nombre}</td>
                     <td>${contacto.email}</td>
                     <td>${contacto.mensaje}</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm eliminar-contacto" data-id="${contacto.id}">Eliminar</button>
-                    </td>
+                    <td><button class="eliminar-contacto" data-id="${contacto.id}">Eliminar</button></td>
                 `;
-
-                tbody.appendChild(tr);
             });
 
             // Agregar evento de clic a los botones de eliminar
@@ -176,18 +127,22 @@ function eliminarContacto(contactoId, fila) {
     .catch(error => console.error('Error al eliminar el contacto:', error));
 }
 
-function ocultarContactos() {
-    const tabla = document.getElementById('tablaContactos');
-    if (tabla.style.display === 'none') {
-        tabla.style.display = 'table';
-        document.getElementById('ocultarContactos').textContent = 'Ocultar Contactos';
-    } else {
-        tabla.style.display = 'none';
-        document.getElementById('ocultarContactos').textContent = 'Mostrar Contactos';
-    }
+function mostrarUsuarios() {
+    fetch('../php/obtener_usuarios.php')
+        .then(response => response.json())
+        .then(data => {
+            const tablaUsuarios = document.getElementById('tablaUsuarios').getElementsByTagName('tbody')[0];
+            tablaUsuarios.innerHTML = ''; // Limpiar la tabla antes de llenarla
+
+            data.forEach(usuario => {
+                const fila = tablaUsuarios.insertRow();
+                fila.innerHTML = `
+                    <td>${usuario.id}</td>
+                    <td>${usuario.nombre}</td>
+                    <td>${usuario.apellido}</td>
+                    <td>${usuario.cargo}</td>
+                `;
+            });
+        })
+        .catch(error => console.error('Error al cargar los usuarios:', error));
 }
-
-
-// ---------------------------------------------------------------------------------
-
-
