@@ -141,8 +141,51 @@ function mostrarUsuarios() {
                     <td>${usuario.nombre}</td>
                     <td>${usuario.apellido}</td>
                     <td>${usuario.cargo}</td>
+                    <td>
+                        <button class="editar-usuario" data-id="${usuario.id}">Editar</button>
+                        <button class="eliminar-usuario" data-id="${usuario.id}">Eliminar</button>
+                    </td>
                 `;
+            });
+
+            // Agregar evento de clic a los botones de eliminar
+            document.querySelectorAll('.eliminar-usuario').forEach(button => {
+                button.addEventListener('click', function() {
+                    const usuarioId = this.getAttribute('data-id');
+                    eliminarUsuario(usuarioId, this.closest('tr'));
+                });
+            });
+
+            // Agregar evento de clic a los botones de editar
+            document.querySelectorAll('.editar-usuario').forEach(button => {
+                button.addEventListener('click', function() {
+                    const usuarioId = this.getAttribute('data-id');
+                    editarUsuario(usuarioId);
+                });
             });
         })
         .catch(error => console.error('Error al cargar los usuarios:', error));
+}
+
+function eliminarUsuario(usuarioId, fila) {
+    fetch('../php/eliminar_usuario.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: usuarioId })
+    })
+    .then(response => {
+        if (response.ok) {
+            fila.remove();
+        } else {
+            console.error('Error al eliminar el usuario');
+        }
+    })
+    .catch(error => console.error('Error al eliminar el usuario:', error));
+}
+
+function editarUsuario(usuarioId) {
+    // Redirigir a la página de edición con el ID del usuario
+    window.location.href = `editar_usuario.html?id=${usuarioId}`;
 }
