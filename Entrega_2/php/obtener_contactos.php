@@ -2,7 +2,7 @@
 include 'conex.php'; // Incluir el archivo de conexión a la base de datos
 
 // Preparar la consulta SQL para obtener todos los contactos
-$sql = "SELECT nombre, email, mensaje FROM contactosDesWeb";
+$sql = "SELECT nombre, correo, mensaje FROM contactosDesWeb";
 $result = $conn->query($sql);
 
 // Verificar si hay resultados

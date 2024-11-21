@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +11,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+    <header class="bg-primary text-white text-center py-3">
+        <div class="container">
+            <h1>Gestion de Administrador</h1>
+        </div>
+    </header>
+
+    <div class="container mt-3">
+    </div>
+
     <div class="container">
         <h1 class="my-4"> Editar Contactos</h1>
         <section id="mostrarContactos">
@@ -20,7 +31,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Email</th>
+                        <th>correo</th>
                         <th>Mensaje</th>
                         <th>Borrar</th>
                     </tr>
@@ -50,7 +61,7 @@
                         <th>Editar</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="cuerpoTablaUsuarios">
                     <!-- Aquí se llenarán los usuarios mediante JavaScript -->
                 </tbody>
             </table>
@@ -58,6 +69,13 @@
     </div>  
 
     <hr>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">© 2024 sushi Shan-Gai. Todos los derechos reservados.</p>
+            <p class="mb-0">Contacto: <a href="mailto:info@tuempresa.com" class="text-white">admin@shangai.com</a></p>
+        </div>
+    </footer>
 
     <script src="../js/funciones.js" defer></script>
 </body>

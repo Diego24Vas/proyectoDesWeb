@@ -77,10 +77,10 @@ window.onload = function() {
 function handleSubmit(event) {
     event.preventDefault(); // Previene el envío real del formulario
     const nombre = document.getElementById('nombre').value;
-    const email = document.getElementById('email').value;
+    const correo = document.getElementById('correo').value;
     const mensaje = document.getElementById('mensaje').value;
 
-    console.log(`Datos ingresados:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+    console.log(`Datos ingresados:\nNombre: ${nombre}\ncorreo: ${correo}\nMensaje: ${mensaje}`);
 }
 
 
@@ -104,11 +104,11 @@ document.getElementById('cargarContactos').addEventListener('click', function() 
             data.forEach(contacto => {
                 const row = tablaContactos.insertRow();
                 const cellNombre = row.insertCell(0);
-                const cellEmail = row.insertCell(1);
+                const cellcorreo = row.insertCell(1);
                 const cellMensaje = row.insertCell(2);
 
                 cellNombre.textContent = contacto.nombre;
-                cellEmail.textContent = contacto.email;
+                cellcorreo.textContent = contacto.correo;
                 cellMensaje.textContent = contacto.mensaje;
             });
         }

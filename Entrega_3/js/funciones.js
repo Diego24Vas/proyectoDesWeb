@@ -92,7 +92,7 @@ function cargarContactos() {
                 fila.innerHTML = `
                     <td>${contacto.id}</td>
                     <td>${contacto.nombre}</td>
-                    <td>${contacto.email}</td>
+                    <td>${contacto.correo}</td>
                     <td>${contacto.mensaje}</td>
                     <td><button class="eliminar-contacto" data-id="${contacto.id}">Eliminar</button></td>
                 `;
@@ -189,3 +189,148 @@ function editarUsuario(usuarioId) {
     // Redirigir a la página de edición con el ID del usuario
     window.location.href = `editar_usuario.html?id=${usuarioId}`;
 }
+
+
+//---------------------------------------------------------------------------------
+
+//Funcion para agregar un nuevo usuario
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('agregarUsuarioForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = {
+            id: formData.get('id'),
+            nombre: formData.get('nombre'),
+            apellido: formData.get('apellido'),
+            cargo: formData.get('cargo'),
+            password: formData.get('password')
+        };
+
+        fetch('agregar_usuario.php', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(result => {
+            const alertContainer = document.getElementById('alertContainer');
+            if (result.success) {
+                const successAlert = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Usuario agregado exitosamente.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `;
+                alertContainer.innerHTML = successAlert;
+                setTimeout(() => {
+                    window.location.href = '../admin/index.html';
+                }, 3000);
+            } else {
+                const errorAlert = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Error al agregar el usuario: ${result.message}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `;
+                alertContainer.innerHTML = errorAlert;
+            }
+        })
+        .catch(error => {
+            const alertContainer = document.getElementById('alertContainer');
+            const errorAlert = `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Error al agregar el usuario: ${error.message}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            `;
+            alertContainer.innerHTML = errorAlert;
+            console.error('Error al agregar el usuario:', error);
+        });
+    });
+});
+
+
+//---------------------------------------------------------------------------------
+
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const usuarioId = urlParams.get('id');
+
+    // Cargar datos del usuario
+    fetch(`../php/obtener_usuario.php?id=${usuarioId}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('nombre').value = data.nombre;
+            document.getElementById('apellido').value = data.apellido;
+            document.getElementById('cargo').value = data.cargo;
+        })
+        .catch(error => console.error('Error al cargar los datos del usuario:', error));
+
+    // Enviar datos actualizados
+    document.getElementById('formEditarUsuario').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const cargo = document.getElementById('cargo').value;
+
+        fetch('../php/actualizar_usuario.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: usuarioId, nombre: nombre, apellido: apellido, cargo: cargo })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const alertContainer = document.getElementById('alertContainer');
+            alertContainer.innerHTML = ''; // Limpiar alertas anteriores
+
+            if (data.message === 'Usuario actualizado correctamente') {
+                const successAlert = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Usuario actualizado correctamente.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `;
+                alertContainer.innerHTML = successAlert;
+            } else {
+                const errorAlert = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Error al actualizar el usuario.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `;
+                alertContainer.innerHTML = errorAlert;
+            }
+        })
+        .catch(error => {
+            const alertContainer = document.getElementById('alertContainer');
+            const errorAlert = `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Error al actualizar el usuario: ${error.message}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            `;
+            alertContainer.innerHTML = errorAlert;
+            console.error('Error al actualizar el usuario:', error);
+        });
+    });
+});
+
