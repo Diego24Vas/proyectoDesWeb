@@ -7,15 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
     $correo = $_POST['correo'];
     $mensaje = $_POST['mensaje'];
-    
-    
 
     // Verificar si todos los campos tienen valores
     if (empty($nombre) || empty($correo) || empty($mensaje)) {
-        die(json_encode(["error" => "Todos los campos son obligatorios."]));
+        die();
     }
 
-    echo "Datos recibidos: Nombre - $nombre, correo - $correo, Mensaje - $mensaje"; // Depuración
     // Preparar la consulta SQL para insertar los datos en la tabla contactos
     $sql = "INSERT INTO contactosDesWeb (nombre, correo, mensaje) VALUES (?, ?, ?)";
 
@@ -26,16 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, "sss", $nombre, $correo, $mensaje);
 
         // Ejecutar la sentencia
-        if (mysqli_stmt_execute($stmt)) {
-            echo json_encode(["success" => "Contacto guardado exitosamente."]);
-        } else {
-            echo json_encode(["error" => "Error al guardar el contacto: " . mysqli_stmt_error($stmt)]);
-        }
+        mysqli_stmt_execute($stmt);
 
         // Cerrar la sentencia
         mysqli_stmt_close($stmt);
-    } else {
-        echo json_encode(["error" => "Error al preparar la consulta: " . mysqli_error($conn)]);
     }
 
     // Cerrar la conexión

@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //---------------------------------------------------------------------------------
-
+// Se ejecuta cuando todo el contenido del DOM ha sido completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const usuarioId = urlParams.get('id');
