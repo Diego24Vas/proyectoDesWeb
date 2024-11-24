@@ -334,3 +334,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//-------------------------------------------------------------
+
+//funcion de vue para la galeria de imagenes
+Vue.component('galeria-sushi', {
+    data: function() {
+        return {
+            imagenes: [
+                'img/Emperador.jpeg',
+                'img/Fire.jpeg',
+                'img/Guerrero.jpeg',
+                'img/Maestro.jpeg',
+                'img/Shangai.jpeg'
+            ],
+            indiceActual: 0
+        };
+    },
+    methods: {
+        // Este método devuelve la imagen correspondiente al índice actual
+        mostrarImagen: function() {
+            return this.imagenes[this.indiceActual];
+        },
+        // Este método se ejecuta cuando se hace clic en el botón "Siguiente"
+        siguiente: function() {
+            this.indiceActual = (this.indiceActual + 1) % this.imagenes.length;  // Incrementa el índice con un ciclo
+        },
+        // Este método se ejecuta cuando se hace clic en el botón "Anterior"
+        anterior: function() {
+            this.indiceActual = (this.indiceActual - 1 + this.imagenes.length) % this.imagenes.length;  // Decrementa el índice con ciclo
+        }
+    },
+    template: `
+        <div>
+            <img :src="mostrarImagen()" alt="Sushi" class="imagen-sushi img-fluid rounded">
+            <div class="mt-3">
+                <button @click="anterior" class="btn btn-outline-dark">Anterior</button>
+                <button @click="siguiente" class="btn btn-outline-dark">Siguiente</button>
+            </div>
+        </div>
+    `
+});
+
+new Vue({
+    el: '#galeriaApp'  
+});
